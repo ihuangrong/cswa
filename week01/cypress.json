@@ -1,7 +1,7 @@
 {
     "video": false,
     "screenshot": false,
-    "reporter": "../json-reporter.js",
+    "reporter": "../../json-reporter.js",
     "reporterOptions": {
         "mochaFile": "test-result.json"
     }
