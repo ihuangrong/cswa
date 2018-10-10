@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 10</title>
+  <link rel="stylesheet" href="task_10.css"/>
+</head>
+<body>
+  <ul role="tablist">
+    <li><a href="#tab1" role="tab" aria-current="true" tabindex="0">Tab 1</a></li>
+    <li><a href="#tab2" role="tab" aria-current="false" tabindex="-1">Tab 2</a></li>
+    <li><a href="#tab3" role="tab" aria-current="false" tabindex="-1">Tab 3</a></li>
+  </ul>
+  <div id="tab1" role="tabpanel" aria-current="true">
+    <h1>Tab 1</h1>
+    <p>This is the first tab</p>
+  </div>
+  <div id="tab2" role="tabpanel" aria-current="false">
+    <h1>Tab 2</h1>
+    <p>This is the second tab</p>
+  </div>
+  <div id="tab3" role="tabpanel" aria-current="false">
+    <h1>Tab 3</h1>
+    <p>This is the third tab</p>
+  </div>
+  <script src="task_10.js"></script>
+</body>

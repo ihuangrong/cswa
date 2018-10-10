@@ -1,0 +1,20 @@
+ul[role=tablist] {
+    display: flex;
+    padding: 0;
+}
+ul[role=tablist] li {
+    list-style-type: none;
+}
+ul[role=tablist] a[role=tab] {
+    display: block;
+    padding: 0.5rem;
+}
+ul[role=tablist] a[role=tab][aria-current="true"] {
+    font-weight: bold;
+}
+div[role=tabpanel] {
+    display: none;
+}
+div[role=tabpanel][aria-current="true"] {
+    display: block;
+}
