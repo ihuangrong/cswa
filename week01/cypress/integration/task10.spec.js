@@ -6,9 +6,9 @@ context('Task 10', () => {
         cy.get('li a').
             each((item, idx) => {
                 if(idx === 0) {
-                    cy.wrap(item).should('have.css', 'font-weight', '700')
+                    cy.wrap(item).should('have.css', 'font-weight').and('match', /(700)|(bold)/)
                 } else {
-                    cy.wrap(item).should('have.css', 'font-weight', '400')
+                    cy.wrap(item).should('have.css', 'font-weight').and('match', /(400)|(normal)/)
                 }
             })
         cy.get('div').

@@ -8,7 +8,8 @@ context('Task 7', () => {
     })
     it('Current Nav element', () => {
         cy.get('nav li.current').
-            should('have.css', 'font-weight', '700')
+            should('have.css', 'font-weight').
+            and('match', /(700)|(bold)/)
     })
     it('Even-numbered li elements', () => {
         cy.get('article ul').
