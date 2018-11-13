@@ -1,5 +1,26 @@
 context('Task 3', () => {
-    it('Test ARIA dialog', () => {
-        cy.visit('http://localhost:4200/')
+    it('Test show ARIA dialog', () => {
+        cy.visit('http://localhost:4200/aria/dialog')
+        cy.get('*[role="button"]').contains('Comment').type('{enter} ')
+        cy.get('*[role="dialog"]')
+        cy.focused().parents('*[role="dialog"]')
+        cy.focused().should('match', 'textarea')
+        cy.focused().type('This is a test')
+        cy.get('*[role="button"]').contains("Don't save")
+        cy.get('*[role="button"]').contains('Save').focus()
+        cy.focused().type('{enter} ')
+        cy.get('*[role="dialog"]').should('have.length', 0)
+        cy.focused().contains('Comment')
+    })
+    it('Test cancel ARIA dialog', () => {
+        cy.visit('http://localhost:4200/aria/dialog')
+        cy.get('*[role="button"]').contains('Comment').type('{enter} ')
+        cy.get('*[role="dialog"]')
+        cy.focused().parents('*[role="dialog"]')
+        cy.focused().should('match', 'textarea')
+        cy.get('*[role="button"]').contains("Don't save").focus()
+        cy.focused().type('{enter} ')
+        cy.get('*[role="dialog"]').should('have.length', 0)
+        cy.focused().contains('Comment')
     })
 })
