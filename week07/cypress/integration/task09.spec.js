@@ -17,7 +17,7 @@ context('Task 9', () => {
             contains(a + ' + ' + b + ' = ' + (a + b))
     })
     it('Add to history', () => {
-        cy.visit('http://localhost:4200/')
+        cy.visit('http://localhost:8080/')
         let a1 = Math.floor((Math.random() * 100) + 1)
         let b1 = Math.floor((Math.random() * 100) + 1)
         let result1 = a1 + ' + ' + b1 + ' = ' + (a1 + b1)
