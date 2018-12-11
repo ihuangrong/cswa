@@ -10,7 +10,7 @@ const reducer = combineReducers({
 const store = createStore(reducer, applyMiddleware(thunk));
 
 store.dispatch(setAxiosConfig({
-    baseURL: 'http://localhost:6543/example'
+    baseURL: 'https://mht.uzi.uni-halle.de/client-seitige-web-anwendungen/api/example'
 }));
 
 export default store;
