@@ -40,6 +40,7 @@ with ZipFile('week07.zip') as in_zip:
                 if completed.returncode == 0:
                     try:
                         run(['npm', 'install'], cwd='submission/%s/week07' % line['--ID'])
+                        run(['npm', 'rebuild', 'node-sass'], cwd='submission/%s/week07' % line['--ID'])
                         server = Popen(['webpack-dev-server', '--config', 'webpack.conf.js'], cwd='submission/%s/week07' % line['--ID'])
                         sleep(10)
                         run(['cypress', 'run'], cwd='../week07')
