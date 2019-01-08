@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src/js/athena.jsx'),
+    entry: path.resolve(__dirname, 'src/js/index.js'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -26,7 +26,14 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                        presets: [
+                            '@babel/preset-env',
+                            [
+                                '@babel/preset-react',
+                                {
+                                    pragma: 'mithril'
+                                }
+                            ]],
                         plugins: ['babel-plugin-transform-class-properties']
                     }
                 }
@@ -53,8 +60,8 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        open: false,
-        historyApiFallback: true
+        historyApiFallback: true,
+        open: false
     },
     optimization: {
         splitChunks: {

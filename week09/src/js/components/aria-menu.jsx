@@ -1,10 +1,6 @@
-import React from 'react';
+import mithril from 'mithril';
 
-export default class AriaMenu extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
+export default class AriaMenu {
     keyDown(ev) {
         if (ev.keyCode === 39) {
             let nextElement = ev.target.parentElement.nextElementSibling;
@@ -27,11 +23,11 @@ export default class AriaMenu extends React.Component {
         }
     }
 
-    render() {
+    view(vnode) {
         return (
             <nav>
-              <ul className={this.props.class} role="menu" onKeyDown={this.keyDown} aria-label={this.props.label}>
-                {this.props.children}
+              <ul class={vnode.attrs.class} role="menu" onkeydown={this.keyDown} aria-label={vnode.attrs.label}>
+                {vnode.children}
               </ul>
             </nav>
         );
