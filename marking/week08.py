@@ -36,7 +36,7 @@ def create_delete_room():
                                     'features': ''}}}
     requests.post('http://localhost:6543/marking/rooms', json=room)
 
-with ZipFile('week04.zip') as in_zip:
+with ZipFile('week08.zip') as in_zip:
     with in_zip.open('Liste.csv') as in_f:
         header = []
         body = []
@@ -57,7 +57,7 @@ with ZipFile('week04.zip') as in_zip:
     marked_list = []
     if os.path.exists('submission'):
         rmtree('submission')
-    with ZipFile('week04_marked.zip', 'w') as out_zip:
+    with ZipFile('week08_marked.zip', 'w') as out_zip:
         results.writeheader()
         skip = 0
         for line in body:
@@ -69,18 +69,16 @@ with ZipFile('week04.zip') as in_zip:
             if 'Aufgabe_1/%s/repository.txt' % line['--ID'] in in_zip.namelist():
                 clone_url = in_zip.read('Aufgabe_1/%s/repository.txt' % line['--ID']).decode('utf-8').strip()
                 completed = run(['git', 'clone', clone_url, 'submission/%s' % line['--ID']])
-                if completed.returncode == 0 and os.path.exists('submission/%s/week04' % line['--ID']):
-                    run(['npm', 'install'], cwd='submission/%s/week04' % line['--ID'])
+                if completed.returncode == 0 and os.path.exists('submission/%s/week08' % line['--ID']):
+                    run(['npm', 'install'], cwd='submission/%s/week08' % line['--ID'])
                     # Overwrite the config
-                    with open('submission/%s/week04/app/adapters/application.js' % line['--ID'], 'w') as out_f:
-                        out_f.write('''import DS from 'ember-data';
-
-                        export default DS.JSONAPIAdapter.extend({
-                            host: 'http://localhost:6543',
-                            namespace: 'marking'
-                        });''')
+                    with open('submission/%s/week08/src/js/store.jsx' % line['--ID'], 'r') as in_f:
+                        conf = in_f.read()
+                        conf = conf.replace('https://mht.uzi.uni-halle.de/client-seitige-web-anwendungen/api/example', 'http://localhost:6543/marking')
+                    with open('submission/%s/week08/src/js/store.jsx' % line['--ID'], 'w') as out_f:
+                        out_f.write(conf)
                     # Setup the logging
-                    with open('submission/%s/week04/cypress.json' % line['--ID'], 'w') as out_f:
+                    with open('submission/%s/week08/cypress.json' % line['--ID'], 'w') as out_f:
                         out_f.write('''{
                             "video": false,
                             "screenshot": false,
@@ -91,43 +89,43 @@ with ZipFile('week04.zip') as in_zip:
                         }''')
                     # Check Cypress installed
                     try:
-                        run(['cypress'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress'], cwd='submission/%s/week08' % line['--ID'])
                     except:
-                        run(['npm', 'install', 'cypress'], cwd='submission/%s/week04' % line['--ID'])
-                    run(['npm', 'install', '--save-dev', 'foundation-sites@6.4.3'], cwd='submission/%s/week04' % line['--ID']) # Force this as sometimes it fails mysteriously
+                        run(['npm', 'install', 'cypress'], cwd='submission/%s/week08' % line['--ID'])
+                    run(['npm', 'install', '--save-dev', 'foundation-sites@6.4.3'], cwd='submission/%s/week08' % line['--ID']) # Force this as sometimes it fails mysteriously
                     try:
-                        server = Popen(['ember', 'serve'], cwd='submission/%s/week04' % line['--ID'])
+                        server = Popen(['webpack-dev-server', '--config', 'webpack.conf.js'], cwd='submission/%s/week08' % line['--ID'])
                         sleep(10)
                         points = 0
                         # Task 1
                         clear_rooms()
-                        run(['cypress', 'run', '-s', 'cypress/integration/task01.spec.js'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress', 'run', '-s', 'cypress/integration/task01.spec.js'], cwd='submission/%s/week08' % line['--ID'])
                         rooms = get_rooms()
                         if len(rooms['data']) == 1:
                             points = points + 1
                         # Task 2
                         clear_rooms()
-                        run(['cypress', 'run', '-s', 'cypress/integration/task02.spec.js'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress', 'run', '-s', 'cypress/integration/task02.spec.js'], cwd='submission/%s/week08' % line['--ID'])
                         rooms = get_rooms()
                         if len(rooms['data']) > 0:
                             points = points + 1
                         # Task 3
                         clear_rooms()
-                        run(['cypress', 'run', '-s', 'cypress/integration/task03.spec.js'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress', 'run', '-s', 'cypress/integration/task03.spec.js'], cwd='submission/%s/week08' % line['--ID'])
                         rooms = get_rooms()
                         if len(rooms['data']) > 0:
                             points = points + 1
                         # Task 4
                         clear_rooms()
                         create_update_room()
-                        run(['cypress', 'run', '-s', 'cypress/integration/task04.spec.js'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress', 'run', '-s', 'cypress/integration/task04.spec.js'], cwd='submission/%s/week08' % line['--ID'])
                         rooms = get_rooms()
                         if len(rooms['data']) == 1 and (rooms['data'][0]['attributes']['name'] != 'Test Room' or rooms['data'][0]['attributes']['address'] != 'Somewhere' or rooms['data'][0]['attributes']['capacity'] != 50 or rooms['data'][0]['attributes']['features'] != 'projector,blackboard'):
                             points = points + 1
                         # Task 5
                         clear_rooms()
                         create_delete_room()
-                        run(['cypress', 'run', '-s', 'cypress/integration/task05.spec.js'], cwd='submission/%s/week04' % line['--ID'])
+                        run(['cypress', 'run', '-s', 'cypress/integration/task05.spec.js'], cwd='submission/%s/week08' % line['--ID'])
                         rooms = get_rooms()
                         if len(rooms['data']) == 0:
                             points = points + 1
