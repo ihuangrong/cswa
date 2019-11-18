@@ -1,5 +1,31 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h1>Calculator</h1>
+<div>
+    <h2>Neue Operation</h2>
+    <label>a:{{input type="number" name="a" value=a}}</label>
+    <select id="dropdown" onchange={{action (mut operation) value="target.value"}}>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>%</option>
+    </select>
+    <label>b:{{input type="number" name="b" value=b}}</label>
+</div>
+
+<div>
+    <button {{action "calculate"}}>Calculate</button>
+    {{#if calculated}}
+    <span id="result">{{a}} {{operation}} {{b}} = {{result}}</span>
+    <div>
+        <h2>History</h2>
+        <h3>Click to Re-calculate</h3>
+        {{#each history as |record|}}
+        <a {{action "history" record}} style="color: blue;">{{record}}<br></a>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+
 
 {{outlet}}
