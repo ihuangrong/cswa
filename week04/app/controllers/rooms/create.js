@@ -13,7 +13,9 @@ export default Controller.extend({
                 address: this.get('newAddress'),
                 capacity: this.get('newCapacity'),
                 features: this.get('newFeatures')
-            }).save();
+            }).save().then(() => {
+                this.transitionToRoute("rooms.display")
+            });
         }
     }
 });

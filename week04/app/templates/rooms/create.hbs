@@ -1,11 +1,17 @@
 <main class="grid-container">
-  <h3>Create Room</h3>
-  <form {{action "createRoom" on="submit"}}>
-    <label>Name:{{input type="text" value=newName}}</label><br/>
-    <label>Adresse:{{input type="text" value=newAddress}}</label><br/>
-    <label>Capacity:{{input type="text" value=newCapacity}}</label><br/>
-    <label>Features:{{input type="text" value=newFeatures}}</label><br/>
-    <button>Create</button>
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Create Room</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{action "createRoom" on="submit"}}>
+    <div class="cell large-4">
+      <label>Name:{{input type="text" value=newName}}</label><br/>
+      <label>Adresse:{{input type="text" value=newAddress}}</label><br/>
+      <label>Capacity:{{input type="text" value=newCapacity}}</label><br/>
+      <label>Features:{{input type="text" value=newFeatures}}</label><br/>
+      <div class="text-center">
+        <button class="button">Create</button>
+      </div>
+    </div>
   </form>
 </main>
 

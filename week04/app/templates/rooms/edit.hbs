@@ -1,11 +1,17 @@
 <main class="grid-container">
-  <h3>Update a single Room</h3>
-  <form {{action "updateRoom" on="submit"}}>
-    <label>Name:{{input type="text" value=model.name}}</label><br/>
-    <label>Adresse:{{input type="text" value=model.address}}</label><br/>
-    <label>Capacity:{{input type="text" value=model.capacity}}</label><br/>
-    <label>Features:{{input type="text" value=model.features}}</label><br/>
-    <button>Update</button>
-    <LinkTo @route="rooms.display">Return</LinkTo>
+  <div class="grid-x grid-padding-x">
+        <h1 class="cell">Update a single Room</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{action "updateRoom" on="submit"}}>
+    <div class="cell large-4">
+      <label>Name:{{input type="text" value=model.name}}</label><br/>
+      <label>Adresse:{{input type="text" value=model.address}}</label><br/>
+      <label>Capacity:{{input type="text" value=model.capacity}}</label><br/>
+      <label>Features:{{input type="text" value=model.features}}</label><br/>
+      <div class="text-center">
+        <button class="button">Update</button>
+        <LinkTo @route="rooms.display" class="button">Return</LinkTo>
+      </div>
+    </div>
   </form>
 </main>

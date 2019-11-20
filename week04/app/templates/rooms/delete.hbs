@@ -1,5 +1,17 @@
 <main class="grid-container">
-  <h3>Delete the Room {{model.name}}</h3>
-  <button {{action "deleteRoom" model}}>Yes</button>
-  <LinkTo @route="rooms.display">No</LinkTo>
+  <div class="grid-x grid-padding-x">
+        <h1 class="cell">Delete the Room</h1>
+  </div>
+  <table>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td>{{model.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button {{action "deleteRoom" model}} class="button">Confirm</button>
+    <LinkTo @route="rooms.display" class="button">Return</LinkTo>
+  </div>
 </main>
