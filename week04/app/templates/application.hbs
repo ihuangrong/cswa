@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<header class="top-bar">
+    <nav class="top-bar-left" aria-label="Main">
+    <h1>Room Managment</h1>
+    <ul class="horizontal" role="menu" aria-label="Main">
+        <li>{{#link-to "rooms.create"}}Create a new room{{/link-to}}</li>
+        <li>{{#link-to "rooms.display"}}Display a list of all rooms{{/link-to}}</li>
+    </ul>
+    </nav>
+</header>
 
 {{outlet}}

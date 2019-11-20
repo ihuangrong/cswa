@@ -1,0 +1,11 @@
+<main class="grid-container">
+  <h3>Update a single Room</h3>
+  <form {{action "updateRoom" on="submit"}}>
+    <label>Name:{{input type="text" value=model.name}}</label><br/>
+    <label>Adresse:{{input type="text" value=model.address}}</label><br/>
+    <label>Capacity:{{input type="text" value=model.capacity}}</label><br/>
+    <label>Features:{{input type="text" value=model.features}}</label><br/>
+    <button>Update</button>
+    <LinkTo @route="rooms.display">Return</LinkTo>
+  </form>
+</main>

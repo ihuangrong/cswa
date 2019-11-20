@@ -1,0 +1,5 @@
+<main class="grid-container">
+  <h3>Delete the Room {{model.name}}</h3>
+  <button {{action "deleteRoom" model}}>Yes</button>
+  <LinkTo @route="rooms.display">No</LinkTo>
+</main>
