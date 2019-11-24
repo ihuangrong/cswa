@@ -1,0 +1,47 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">My Modules</h1>
+  </div>
+  <div class="grid-x grid-padding-x">
+    <nav class="cell shrink" aria-label="Modules">
+      <ul role="menu" aria-label="Modules">
+        <li>{{#link-to "modules" (query-params semester="WS18/19")}}Current Semester{{/link-to}}</li>
+        <li>{{#link-to "modules" (query-params semester="SS18")}}Last Semester{{/link-to}}</li>
+        <li role="separator"></li>
+        <li><a href="" tabindex="-1" role="menuitem">Enroll in Module</a></li>
+        <li>{{#link-to 'modules.new'}}Create a Module{{/link-to}}</li>
+      </ul>
+    </nav>
+    <section class="cell auto">
+        <table>
+        <tbody>
+  {{#each model as |module|}}
+    <tr>
+      <td>{{#link-to "modules.view" module.id}}{{module.code}}{{/link-to}}</td>
+      <td>{{#link-to "modules.view" module.id}}{{module.name}}{{/link-to}}</td>
+      <td>
+        <nav aria-label="Sections of Client-seitige Web-Anwendungen">
+          <ul role="menu" class="horizontal" aria-label="Sections">
+            <li><a href="" role="menuitem" aria-label="Dates" title="Dates" class="mdi mdi-calendar-clock" tabindex="0"></a></li>
+            <li><a href="" role="menuitem" aria-label="Documents" title="Documents" class="mdi mdi-file-document-box-multiple-outline" tabindex="-1"></a></li>
+            <li><a href="" role="menuitem" aria-label="Exercises" title="Exercises" class="mdi mdi-test-tube" tabindex="-1"></a></li>
+            <li><a href="" role="menuitem" aria-label="Teilnehmerinnen" title="Teilnehmer_innen" class="mdi mdi-account-multiple" tabindex="-1"></a></li>
+          </ul>
+        </nav>
+      </td>
+      <td>
+        <nav aria-label="Actions for Client-seitige Web-Anwendungen">
+          <ul role="menu" class="horizontal" aria-label="Actions">
+              {{#each-in module.actions as |action display|}}
+            <li><a href="" role="menuitem" aria-label={{display.title}} title={{display.title}} class={{display.icon}} tabindex="0"></a></li>
+            {{/each-in}}
+          </ul>
+        </nav>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+  </table>
+    </section>
+  </div>
+</main>

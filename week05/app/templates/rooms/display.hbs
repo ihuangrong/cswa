@@ -1,0 +1,28 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">List of all Rooms</h1>
+  </div>
+  <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Capacity</th>
+            <th>Features</th>
+            <th>Bearbeiten</th>
+        </tr>
+    </thead>
+    <tbody>
+{{#each model as |room|}}
+  <tr>
+      <td><LinkTo @route="rooms.view" @model={{room.id}}>{{room.name}}</LinkTo></td>
+      <td>{{room.address}}</td>
+      <td>{{room.capacity}}</td>
+      <td>{{room.features}}</td>
+      <td><LinkTo @route="rooms.edit" @model={{room.id}}>Edit</LinkTo> | 
+      <LinkTo @route="rooms.delete" @model={{room.id}}>Delete</LinkTo></td>
+  </tr>
+{{/each}}
+    </tbody>
+  </table>
+</main>

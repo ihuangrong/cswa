@@ -1,0 +1,16 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <div class="cell">
+      <h1>{{model.code}} {{model.name}}</h1>
+      <dl>
+        <dt>Semester</dt>
+        <dd>{{model.semester}}</dd>
+        <dt>Contact</dt>
+        <dd>{{model.creator.email}}</dd>
+      </dl>
+      <div>
+        {{#link-to "modules.edit" model.id}}Edit{{/link-to}}
+      </div>
+    </div>
+  </div>
+</main>

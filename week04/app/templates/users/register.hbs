@@ -1,0 +1,39 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Register</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{action "createUser" on="submit"}}>
+    <div class="cell large-4">
+      <label>E-Mail Address
+        {{input type="text" value=newEmail}}
+        {{#if errorEmail}}
+          <span class="form-error is-visible">{{errorEmail}}</span>
+        {{/if}}
+      </label>
+      <label>First Name
+        {{input type="text" value=newFirstName}}
+        {{#if errorFirstName}}
+          <span class="form-error is-visible">{{errorFirstName}}</span>
+        {{/if}}
+      </label>
+      <label>Last Name
+        {{input type="text" value=newLastName}}
+        {{#if errorLastName}}
+          <span class="form-error is-visible">{{errorLastName}}</span>
+        {{/if}}
+      </label>
+      <label>Role
+        <select onchange={{action "setNewRole" value="target.value"}}>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+        {{#if errorRole}}
+          <span class="form-error is-visible">{{errorRole}}</span>
+        {{/if}}
+      </label>
+      <div class="text-right">
+        <button class="button">Register</button>
+      </div>
+    </div>
+  </form>
+</main>

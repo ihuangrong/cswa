@@ -1,0 +1,22 @@
+<div class="grid-x grid-padding-x">
+  <form class="cell large-2 large-offset-5" {{action "login" on="submit"}}>
+    <div class="callout">
+      <h1>Login</h1>
+      <label class={{classLabel}}>E-Mail
+        {{input type="email" value=email class=classInput key-press=(action "typing")}}
+        {{#if loginInvalid}}
+            <span class="form-error is-visible">No user exists with the e-mail address {{email}} or the password is incorrect.</span>
+        {{/if}}
+      </label>
+      <label class={{classLabel}}>Password
+        {{input type="password" value=password class=classInput key-press=(action "typing")}}
+        {{#if loginInvalid}}
+            <span class="form-error is-visible">No user exists with the e-mail address {{email}} or the password is incorrect.</span>
+        {{/if}}
+      </label>
+      <div class="text-right">
+        <button class="button">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

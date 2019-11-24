@@ -1,0 +1,34 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Create new Module</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{action "createModule" on="submit"}}>
+    <div class="cell large-4">
+      <label>Code
+        {{input type="text" value=newCode}}
+        {{#if errorCode}}
+          <span class="form-error is-visible">{{errorCode}}</span>
+        {{/if}}
+      </label>
+      <label>Name
+        {{input type="text" value=newName}}
+        {{#if errorName}}
+          <span class="form-error is-visible">{{errorName}}</span>
+        {{/if}}
+      </label>
+      <label>Semester
+        <select onchange={{action "setNewSemester" value="target.value"}}>
+          <option value="WS18/19">Wintersemester 18/19</option>
+          <option value="SS18">Summersemester 18</option>
+        </select>
+        {{#if errorSemester}}
+          <span class="form-error is-visible">{{errorSemester}}</span>
+        {{/if}}
+      </label>
+      <div class="text-right">
+        {{#link-to "modules" class="button secondary"}}Don't Create{{/link-to}}
+        <button class="button">Create</button>
+      </div>
+    </div>
+  </form>
+</main>

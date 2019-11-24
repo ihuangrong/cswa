@@ -2,13 +2,14 @@
     <nav class="top-bar-left" aria-label="Main">
         <ul class="horizontal" role="menu" aria-label="Main">
             <li class="menu-text">Athena - Study Portal</li>
-            <li>{{#link-to "rooms.create"}}Create a new room{{/link-to}}</li>
-            <li>{{#link-to "rooms.display"}}Display a list of all rooms{{/link-to}}</li>
+            <li>{{#link-to 'modules'}}My Modules{{/link-to}}</li>
+            <li><a href="" role="menuitem" tabindex="-1">My Exams</a></li>
+            <li>{{#link-to 'rooms'}}My Rooms{{/link-to}}</li>
         </ul>
     </nav>
     <nav class="top-bar-right" aria-label="User">
     <ul class="horizontal" role="menu" aria-label="User">
-      <li><a role="menuitem" tabindex="0">Profile</a></li>
+      <li>{{#link-to "users.register"}}Register{{/link-to}}</li>
       <li><a role="menuitem" tabindex="-1">Logout</a></li>
     </ul>
   </nav>

@@ -1,0 +1,34 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Edit {{model.name}}</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{action "updateModule" on="submit"}}>
+    <div class="cell large-4">
+      <label>Code
+        {{input type="text" value=model.code}}
+        {{#if errorCode}}
+          <span class="form-error is-visible">{{errorCode}}</span>
+        {{/if}}
+      </label>
+      <label>Name
+        {{input type="text" value=model.name}}
+        {{#if errorName}}
+          <span class="form-error is-visible">{{errorName}}</span>
+        {{/if}}
+      </label>
+      <label>Semester
+        <select onchange={{action "setSemester" value="target.value"}}>
+          <option value="WS18/19" selected={{eq model.semester "WS18/19"}}>Wintersemester 18/19</option>
+          <option value="SS18" selected={{eq model.semester "SS18"}}>Summersemester 18</option>
+        </select>
+        {{#if errorSemester}}
+          <span class="form-error is-visible">{{errorSemester}}</span>
+        {{/if}}
+      </label>
+      <div class="text-right">
+        {{#link-to "modules.view" model.id class="button secondary"}}Don't Update{{/link-to}}
+        <button class="button">Update</button>
+      </div>
+    </div>
+  </form>
+</main>
