@@ -10,9 +10,9 @@ Router.map(function() {
   this.route('rooms', function() {
     this.route('create');
     this.route('display');
-    this.route('view', { path: 'view/:room_id' });
+    this.route('view', { path: ':room_id' });
     this.route('edit', { path: ':room_id/edit' });
-    this.route('delete', { path: ':room_id' });
+    this.route('delete', { path: ':room_id/delete' });
   });
   this.route('login');
   this.route('modules', function() {
@@ -23,5 +23,10 @@ Router.map(function() {
 
   this.route('users', function() {
     this.route('register');
+    this.route('profile', {path: ':user_id/profile'});
+  });
+
+  this.route('aria', function() {
+    this.route('alert');
   });
 });

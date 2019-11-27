@@ -1,0 +1,18 @@
+generic:
+  current_semester: Current Semester
+  last_semester: Last Semester
+application:
+  athena_study_portal: Athena - Study Portal
+  my_modules: My Modules
+  my_exams: My Exams
+  my_rooms: My Rooms
+  register: Register
+  logout: Logout
+  menu: Menu
+modules:
+  enroll: Enroll in Module
+  create: Create a new Module
+  code: Code
+  name: Name
+  sections: Sections
+  actions: Actions

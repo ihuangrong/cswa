@@ -24,7 +24,8 @@
           </tbody>
         </table>
         <div class="text-right">
-          <LinkTo @route="rooms" class="button">Return</LinkTo>
+          <LinkTo @route="rooms" class="button secondary">Return</LinkTo>
+          <LinkTo @route="rooms.edit" @model={{room.id}} class="button">Edit</LinkTo>
         </div>
     </div>
 </main>

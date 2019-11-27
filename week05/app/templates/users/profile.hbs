@@ -1,0 +1,27 @@
+<main class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <h1 class="cell">Profile</h1>
+    </div>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>First Name</th>
+                <td>{{model.first_name}}</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>{{model.last_name}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{format-email model.email}}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{model.role}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

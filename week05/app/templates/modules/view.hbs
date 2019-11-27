@@ -4,12 +4,13 @@
       <h1>{{model.code}} {{model.name}}</h1>
       <dl>
         <dt>Semester</dt>
-        <dd>{{model.semester}}</dd>
+        <dd>{{format-semester model.semester}}</dd>
         <dt>Contact</dt>
         <dd>{{model.creator.email}}</dd>
       </dl>
       <div>
-        {{#link-to "modules.edit" model.id}}Edit{{/link-to}}
+        {{#link-to "modules" class="button secondary"}}Return{{/link-to}}
+        {{#link-to "modules.edit" model.id class="button"}}Edit{{/link-to}}
       </div>
     </div>
   </div>

@@ -1,0 +1,18 @@
+generic:
+  current_semester: 当前学期
+  last_semester: 上学期
+application:
+  athena_study_portal: 阿特纳 - 学生平台
+  my_modules: 我的模块
+  my_rooms: 我的房间
+  my_exams: 我的考试
+  register: 注册
+  logout: 登出
+  menu: 菜单
+modules:
+  enroll: 注册模块
+  create: 新建模块
+  code: 编号
+  name: 名称
+  sections: 选项
+  actions: 操作

@@ -44,3 +44,16 @@ ul[role="menu"].horizontal {
 .mdi.warning:hover, .mdi.warning:focus {
     color: lighten(get-color('alert'), 10%);
 }
+
+/*
+ * Responsive Table
+ */
+ @include breakpoint(small only) {
+    table thead {
+        display: none;
+    }
+    table tbody td {
+        display: block;
+        width: 100%;
+    }
+}
