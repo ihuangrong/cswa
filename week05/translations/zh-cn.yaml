@@ -6,6 +6,7 @@ application:
   my_modules: 我的模块
   my_rooms: 我的房间
   my_exams: 我的考试
+  my_tasks: 我的任务
   register: 注册
   logout: 登出
   menu: 菜单

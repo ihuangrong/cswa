@@ -6,6 +6,7 @@ application:
   my_modules: My Modules
   my_exams: My Exams
   my_rooms: My Rooms
+  my_tasks: My Tasks
   register: Register
   logout: Logout
   menu: Menu

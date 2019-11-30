@@ -4,21 +4,25 @@ export default Controller.extend({
     newCode: '',
     newName: '',
     newSemester: 'WS18/19',
+    teacher: '',
     errorCode: '',
     errorName: '',
     errorSemester: '',
+    errorTeacher: '',
 
     actions: {
         createModule() {
+            this.set('errorCode', '')
+            this.set('errorName', '')
+            this.set('errorSemester', '')
+            this.set('errorTeacher', '')
             let newModule = this.store.createRecord('module', {
                 code: this.get('newCode'),
                 name: this.get('newName'),
                 semester: this.get('newSemester'),
-                creator: this.get('model')
+                // creator: this.get('model')
+                teacher: this.get('model')
             })
-            this.set('errorCode', '')
-            this.set('errorName', '')
-            this.set('errorSemester', '')
             newModule.save().then((module) => {
                 this.transitionToRoute('modules.view', module.id)
             }).catch((response) => {
@@ -29,7 +33,10 @@ export default Controller.extend({
                         this.set('errorName', error.detail)
                     } else if(error.source.pointer == '/data/attributes/semester') {
                         this.set('errorSemester', error.detail)
+                    } else if (error.source.pointer == '/data/relationships/teacher/data') {
+                        this.set('errorTeacher', error.detail)
                     }
+            
                 })
             })
         },

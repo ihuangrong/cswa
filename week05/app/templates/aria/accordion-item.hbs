@@ -1,0 +1,29 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Task04 - accordion</h1>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <ul class="accordion" data-accordion>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title" {{action "expanded1"}}>Accordion 1</a>
+          {{#if isExpanded1}}
+          {{#aria-accordion}}<p>Content - Panel 1</p>{{/aria-accordion}}
+          {{/if}}
+        </li>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title" {{action "expanded2"}}>Accordion 2</a>
+          {{#if isExpanded2}}
+          {{#aria-accordion}}<p>Content - Panel 2</p>{{/aria-accordion}}
+          {{/if}}
+        </li>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title" {{action "expanded3"}}>Accordion 3</a>
+          {{#if isExpanded3}}
+          {{#aria-accordion}}<p>Content - Panel 3</p>{{/aria-accordion}}
+          {{/if}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>

@@ -7,49 +7,26 @@
 
 {{#if (or mediaQuery.notSmall menuVisible)}}
 <header class="top-bar">
-    {{!-- 
-    <nav class="top-bar-left" aria-label="Main">
-        <ul class="horizontal" role="menu" aria-label="Main">
-            <li class="menu-text">Athena - Study Portal</li>
-            <li>{{#link-to 'modules'}}My Modules{{/link-to}}</li>
-            <li><a href="" role="menuitem" tabindex="-1">My Exams</a></li>
-            <li>{{#link-to 'rooms'}}My Rooms{{/link-to}}</li>
-        </ul>
-    </nav> 
-    <nav class="top-bar-right" aria-label="User">
-      <ul class="horizontal" role="menu" aria-label="User">
-        <li>{{#link-to "users.register"}}Register{{/link-to}}</li>
-        <li><a role="menuitem" tabindex="-1">Logout</a></li>
-      </ul>
-    </nav>
-    --}}
     {{#aria-menu classNames="top-bar-left" direction=menuDirection label="Main"}}
       <li class="menu-text">{{t 'application.athena_study_portal'}}</li>
       {{#aria-menu-item "modules" tabindex=0}}{{t "application.my_modules"}}{{/aria-menu-item}}
       <li><a href="" role="menuitem" tabindex="-1">{{t "application.my_exams"}}</a></li>
       {{#aria-menu-item "rooms" tabindex=0}}{{t "application.my_rooms"}}{{/aria-menu-item}}
+      {{#aria-menu-item "tasks" tabindex=0}}{{t "application.my_tasks"}}{{/aria-menu-item}}
     {{/aria-menu}}
-    {{!-- {{#aria-menu classNames="top-bar-right" direction=menuDirection label="User"}}
-      <li><a {{action "setLocale"}} role="menuitem" tabindex="0">English</a></li>
-      <li><a {{action "setLocale" "de-de"}} role="menuitem" tabindex="0">Deutsch</a></li>
-      <li><a {{action "setLocale" "zh-cn"}} role="menuitem" tabindex="0">Chinesisch</a></li>
-      <li role="separator"></li>
-      {{#aria-menu-item "users.register"}}{{t "application.register"}}{{/aria-menu-item}}
-      <li><a role="menuitem" tabindex="-1">{{t "application.logout"}}</a></li>
-    {{/aria-menu}} --}}
     {{#aria-menu classNames="top-bar-right" direction=menuDirection label="User"}}
       {{#if (eq intl.locale.[0] 'en-us')}}
-        <li><a {{action "setLocale"}} role="menuitem" tabindex="0" aria-current="true">English</a></li>
+        <li><a {{action "setLocale"}} role="menuitem" tabindex="0" aria-current="true" class="active">English</a></li>
       {{else}}
         <li><a {{action "setLocale"}} role="menuitem" tabindex="0">English</a></li>
       {{/if}}
       {{#if (eq intl.locale.[0] 'de-de')}}
-        <li><a {{action "setLocale" "de-de"}} role="menuitem" tabindex="0" aria-current="true">Deutsch</a></li>
+        <li><a {{action "setLocale" "de-de"}} role="menuitem" tabindex="0" aria-current="true" class="active">Deutsch</a></li>
       {{else}}
         <li><a {{action "setLocale" "de-de"}} role="menuitem" tabindex="0">Deutsch</a></li>
       {{/if}}
       {{#if (eq intl.locale.[0] 'zh-cn')}}
-        <li><a {{action "setLocale" "zh-cn"}} role="menuitem" tabindex="0" aria-current="true">Chinesisch</a></li>
+        <li><a {{action "setLocale" "zh-cn"}} role="menuitem" tabindex="0" aria-current="true" class="active">Chinesisch</a></li>
       {{else}}
         <li><a {{action "setLocale" "zh-cn"}} role="menuitem" tabindex="0">Chinesisch</a></li>
       {{/if}}

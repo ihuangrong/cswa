@@ -4,8 +4,9 @@ generic:
 application:
   athena_study_portal: Athena - Studienportal
   my_modules: Meine Module
-  my_rooms: My Zimmer
+  my_rooms: Meine Zimmer
   my_exams: Meine Prüfungen
+  my_tasks: Meine Aufgaben
   register: Registrieren
   logout: Ausloggen
   menu: Menü

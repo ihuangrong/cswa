@@ -28,5 +28,9 @@ Router.map(function() {
 
   this.route('aria', function() {
     this.route('alert');
+    this.route('dialog');
+    this.route('accordion');
+    this.route('accordion-item');
   });
+  this.route('tasks');
 });

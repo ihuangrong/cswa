@@ -3,15 +3,6 @@
     <h1 class="cell">{{t "application.my_modules"}}</h1>
   </div>
   <div class="grid-x grid-padding-x">
-    {{!-- <nav class="cell shrink" aria-label="Modules">
-      <ul role="menu" aria-label="Modules">
-        <li>{{#aria-menu-item "modules" (query-params semester="WS18/19") tabindex=0}}Current Semester{{/aria-menu-item}}</li>
-        <li>{{#aria-menu-item "modules" (query-params semester="SS18")}}Last Semester{{/aria-menu-item}}</li>
-        <li role="separator"></li>
-        <li><a href="" tabindex="-1" role="menuitem">Enroll in Module</a></li>
-        <li>{{#aria-menu-item 'modules.new'}}Create a Module{{/aria-menu-item}}</li>
-      </ul>
-    </nav> --}}
     <div class="cell small-12 medium-3 large-shrink">
     {{#aria-menu label="Modules" direction=actionMenuDirection}}
       {{#aria-menu-item 'modules' (query-params semester="WS18/19") tabindex=0}}{{t "generic.current_semester"}}{{/aria-menu-item}}
@@ -21,7 +12,6 @@
       {{#aria-menu-item 'modules.new'}}{{t "modules.create"}}{{/aria-menu-item}}
     {{/aria-menu}}
     </div>
-    {{!-- <section class="cell auto"> --}}
     <section class="cell small-12 medium-9 large-auto">
         <table>
           <thead>
@@ -47,10 +37,11 @@
       </td>
       <td>
         <nav aria-label="Actions for Client-seitige Web-Anwendungen">
-          <ul role="menu" class="horizontal" aria-label="Actions">
-            {{#each-in module.actions as |actionName display|}}
+          <ul role="menu" class="horizontal" aria-label="Actions"> 
+            {{!-- {{#each-in module.actions as |actionName display|}} --}}
             {{!-- <li><a {{action display.action module}} role="menuitem" aria-label={{display.title}} title={{display.title}} class={{display.icon}} tabindex="0"></a></li> --}}
-            <li><a {{action display.action module}} role="menuitem" aria-label={{display.title}} title={{display.title}} class={{display.icon}} tabindex="0"></a></li>
+            {{#each-in module.actions as |action display|}}
+            <li><a href="" role="menuitem" aria-label={{display.title}} title={{display.title}} class={{display.icon}} tabindex="0"></a></li>
             {{/each-in}}
           </ul>
         </nav>
