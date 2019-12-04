@@ -1,0 +1,36 @@
+@import "settings";
+@import 'foundation-sites/foundation';
+@include foundation-everything;
+
+/*
+ * Menu styles
+ */
+ ul[role="menu"] {
+    @include menu-base;
+    @include menu-direction('vertical');
+
+    &.horizontal {
+        @include menu-direction('horizontal');
+    }
+
+    li {
+        &.menu-text{
+            @include menu-text;
+        }
+
+        &[role="separator"] {
+            padding-bottom: $global-padding;
+        }
+
+        a {
+            &.active {
+                @include menu-state-active;
+            }
+        }
+    }
+}
+
+ul[role="menu"].horizontal {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
