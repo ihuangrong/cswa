@@ -2,12 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src/js/calculator.jsx'),
+    entry: path.resolve(__dirname, 'src/js/athena.jsx'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: "var",
-        library: "Calculator"
+        library: "Athena"
     },
     mode: 'development',
     plugins: [
@@ -44,7 +44,9 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            includePaths: [path.resolve(__dirname, 'node_modules')]
+                            sassOptions:{  
+                                includePaths: [path.resolve(__dirname, 'node_modules')]
+                            }  
                         }
                     }
                 ]
