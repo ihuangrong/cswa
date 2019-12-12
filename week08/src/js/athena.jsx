@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import AriaMenu from './components/aria-menu.jsx';
 import Login from './routes/login.jsx';
 import Modules from './routes/modules.jsx';
+import Rooms from './routes/rooms.jsx';
 import store from './store.jsx';
 
 import '../styles/app.scss';
@@ -15,37 +16,6 @@ export class Athena extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      email: '',
-      password: '',
-      loginValid: true
-    }
-  }
-
-  updateEmail = (ev) => {
-    this.setState({
-      email: ev.target.value
-    });
-  }
-
-  updatePassword = (ev) => {
-    this.setState({
-      password: ev.target.value
-    });
-  }
-
-  handleLogin = (ev) => {
-    ev.preventDefault();
-    if (this.state.email === 'test@example.com' && this.state.password === 'password') {
-      this.setState({
-        loginValid: true
-      });
-    } else {
-      this.setState({
-        loginValid: false
-      });
-    }
   }
 
   render() {
@@ -59,6 +29,7 @@ export class Athena extends React.Component {
                   <li className="menu-text">Athena - Study Portal</li>
                   <li><Link to="/modules" role="menuitem" tabIndex="0">My Modules</Link></li>
                   <li><a href="" role="menuitem" tabIndex="-1">My Exams</a></li>
+                  <li><Link to="/rooms" role="menuitem" tabIndex="0">My Rooms</Link></li>
                 </AriaMenu>
               </div>
               <div className="top-bar-right">
@@ -72,6 +43,7 @@ export class Athena extends React.Component {
               <Switch>
                 <Route path="/login" component={Login} />
                 <Route path="/modules" component={Modules} />
+                <Route path="/rooms" component={Rooms} />
               </Switch>
             </div>
             <footer>
