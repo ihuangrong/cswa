@@ -5,7 +5,7 @@
 /*
  * Menu styles
  */
-ul[role="menu"] {
+ ul[role="menu"] {
     @include menu-base;
     @include menu-direction('vertical');
 
@@ -30,12 +30,7 @@ ul[role="menu"] {
     }
 }
 
-/*
- * Icon styles
- */
-.mdi.warning:link, .mdi.warning:visited {
-    color: get-color('alert');
-}
-.mdi.warning:hover, .mdi.warning:focus {
-    color: lighten(get-color('alert'), 10%);
+ul[role="menu"].horizontal {
+    flex-wrap: wrap;
+    flex-direction: row;
 }
