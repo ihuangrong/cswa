@@ -10,6 +10,7 @@ import RoomsNew from './routes/rooms/new.jsx';
 import RoomView from './routes/rooms/view.jsx';
 import RoomEdit from './routes/rooms/edit.jsx';
 
+// resubmit Gitlab
 export function install(attachmentPoint) {
     mithril.route(attachmentPoint, '/', {
         '/': Athena,

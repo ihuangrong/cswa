@@ -4,6 +4,7 @@ import Athena from '../../athena.jsx';
 import AriaMenu from '../../components/aria-menu.jsx';
 import api from '../../api';
 
+// resubmit Gitlab
 export default class RoomsIndex {
 
     rooms = null;
