@@ -3,7 +3,7 @@ import mithril from 'mithril';
 import Athena from '../../athena.jsx';
 import api from '../../api.js';
 
-export default class Edit {
+export default class ModuleEdit {
 
     module = null;
 

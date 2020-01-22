@@ -3,23 +3,16 @@ import mithril from 'mithril';
 import Athena from '../../athena.jsx';
 import api from '../../api.js';
 
-export default class ModuleView {
+export default class RoomView {
 
-    module = null;
-    teacher = null;
+    room = null;
 
     oninit(vnode) {
         mithril.request({
             method: 'GET',
-            url: api.base + '/modules/' + vnode.attrs.mid
+            url: api.base + '/rooms/' + vnode.attrs.rid
         }).then((data) => {
-            this.module = data;
-            mithril.request({
-                method: 'GET',
-                url: api.base + '/users/' + data.data.relationships.teacher.data.id
-            }).then((data) => {
-                this.teacher = data;
-            })
+            this.room = data;
         });
     }
 
@@ -27,21 +20,24 @@ export default class ModuleView {
      * Render the component
      */
     view(vnode) {
-        if (vnode.state.module && vnode.state.teacher) {
-            let editPath = '/modules/' + vnode.state.module.data.id + '/edit';
+        if (vnode.state.room) {
+            let editPath = '/rooms/' + vnode.state.room.data.id + '/edit';
             return (
                 <Athena>
                   <main class="grid-container">
                     <div class="grid-x grid-padding-x">
                       <div class="cell">
-                        <h1>{vnode.state.module.data.attributes.code} {vnode.state.module.data.attributes.name}</h1>
+                        <h1>{vnode.state.room.data.attributes.name}</h1>
                         <dl>
-                          <dt>Semester</dt>
-                          <dd>{vnode.state.module.data.attributes.semester}</dd>
-                          <dt>Contact</dt>
-                          <dd>{vnode.state.teacher.data.attributes.email}</dd>
+                          <dt>Address</dt>
+                          <dd>{vnode.state.room.data.attributes.address}</dd>
+                          <dt>Capacity</dt>
+                          <dd>{vnode.state.room.data.attributes.capacity}</dd>
+                          <dt>Features</dt>
+                          <dd>{vnode.state.room.data.attributes.features}</dd>
                         </dl>
                         <div>
+                          <a href="/rooms" className="secondary button" oncreate={mithril.route.link}>Return</a>
                           <a href={editPath} class="button" oncreate={mithril.route.link}>Edit</a>
                         </div>
                       </div>

@@ -13,6 +13,7 @@ export default class Athena {
                     <li class="menu-text">Athena - Study Portal</li>
                     <li><a href="/modules" role="menuitem" tabindex="0" oncreate={mithril.route.link}>My Modules</a></li>
                     <li><a href="" role="menuitem" tabindex="-1">My Exams</a></li>
+                    <li><a href="/rooms" role="menuitem" tabindex="0" oncreate={mithril.route.link}>My Rooms</a></li>
                   </AriaMenu>
                 </div>
                 <div class="top-bar-right">
@@ -26,7 +27,7 @@ export default class Athena {
                 {vnode.children}
               </div>
               <footer>
-                &copy; 2018 - Mark Hall (<a href="mailto:mark.hall@informatik.uni-halle.de" tabindex="0">mark.hall@informatik.uni-halle.de</a>)
+                &copy; 2018 - Mark Hall bearb. Rong (<a href="mailto:mark.hall@informatik.uni-halle.de" tabindex="0">mark.hall@informatik.uni-halle.de</a>)
               </footer>
             </div>
         );
