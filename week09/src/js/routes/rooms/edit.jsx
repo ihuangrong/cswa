@@ -3,7 +3,6 @@ import mithril from 'mithril';
 import Athena from '../../athena.jsx';
 import api from '../../api.js';
 
-// resubmit Gitlab
 export default class RoomEdit {
 
     room = null;

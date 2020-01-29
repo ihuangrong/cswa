@@ -4,7 +4,6 @@ import Athena from '../../athena.jsx';
 import AriaMenu from '../../components/aria-menu.jsx';
 import api from '../../api';
 
-// resubmit Gitlab
 export default class RoomsIndex {
 
     rooms = null;
@@ -18,7 +17,7 @@ export default class RoomsIndex {
         });
     }
 
-    deleteModule(room) {
+    deleteRoom(room) {
       mithril.request({
           method: 'DELETE',
           url: api.base + '/rooms/' + room.id
